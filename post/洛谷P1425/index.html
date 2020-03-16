@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mxyの自闭屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="/media/css/post.css">
+    <link rel="stylesheet" href="/media/live2d/css/live2d.css" />
+    
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+<header class="mdui-toolbar mdui-color-pink mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+    <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+    <span class="mdui-typo-title">mxyの自闭屋</span>
+    <div class="mdui-toolbar-spacer"></div>
+<!--    <a href="javascript:history.go(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</header>
+
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+    <ul class="mdui-list">
+        <li class="mdui-subheader">菜单</li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/" class="mdui-list-item-content">首页</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/archives" class="mdui-list-item-content">归档</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/tags" class="mdui-list-item-content">标签</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/post/about" class="mdui-list-item-content">关于</a>
+        </li>
+        
+    </ul>
+</div>
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title">洛谷P1425</h1>
+                    <p class="entry-census">发布于 2019-06-21</p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <p>旋转卡壳板子。jls的不知道为什么错了。。。</p>
+<p>需要注意的是凸包上点到点的距离并不满足单调性，也就是不能三分之类的。</p>
+<p>但是点到边的距离是满足的，然后jls的板子好像直接用的点到点的距离来旋转，</p>
+<p>正解应该是通过点到边的距离来旋转，也就是三角形的面积，<s>叉积快啊！</s></p>
+<hr>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long  ll;
+struct point{
+    ll x,y;
+    point operator + (const point &amp;k1) const{return (point){k1.x+x,k1.y+y};}
+    point operator - (const point &amp;k1) const{return (point){x-k1.x,y-k1.y};}
+    // 逆时针旋转
+    bool operator &lt; (const point k1) const{
+        return x&lt;k1.x||(x==k1.x&amp;&amp;y&lt;k1.y);
+    }
+    ll abs2(){return x*x+y*y;}
+    ll dis(point k1){return ((*this)-k1).abs2();}
+};
+ll cross(point k1,point k2){return k1.x*k2.y-k1.y*k2.x;}
+vector&lt;point&gt; ConvexHull(vector&lt;point&gt;A,int flag=1){ // flag=0 不严格 flag=1 严格
+    int n=A.size(); vector&lt;point&gt;ans(n*2);
+    sort(A.begin(),A.end()); int now=-1;
+    for (int i=0;i&lt;A.size();i++){
+        while (now&gt;0&amp;&amp;cross(ans[now]-ans[now-1],A[i]-ans[now-1])&lt;flag) now--;
+        ans[++now]=A[i];
+    } int pre=now;
+    for (int i=n-2;i&gt;=0;i--){
+        while (now&gt;pre&amp;&amp;cross(ans[now]-ans[now-1],A[i]-ans[now-1])&lt;flag) now--;
+        ans[++now]=A[i];
+    } ans.resize(now); return ans;
+}
+ll convexDiameter(vector&lt;point&gt;ps){
+    int n = ps.size();if(n&lt;=1)return 0;
+    int is=0,js=0;
+    for(int k=1;k&lt;=n;k++)is=ps[k]&lt;ps[is]?k:is,js=ps[js]&lt;ps[k]?k:js;
+    int i=is,j=js;
+    ll ret = ps[i].dis(ps[j]);
+    do{
+        if(cross(ps[(i+1)%n]-ps[i],ps[(j+1)%n]-ps[j])&gt;=0)(++j)%=n;
+        else (++i)%=n;
+        ret = max(ps[i].dis(ps[j]),ret);
+    }while (i!=is||j!=js);
+    return ret;
+}
+ll rotating_calipers(vector&lt;point&gt; ch,int n) {
+    int q=1;
+    ll ans=0;
+    ch.push_back(ch[0]);
+    for(int p=0;p&lt;n;p++){
+        while(cross(ch[q+1]-ch[p+1],ch[p]-ch[p+1])&gt;cross(ch[q]-ch[p+1],ch[p]-ch[p+1]))
+            q=(q+1)%n;
+        ans=max(ans,max(ch[p].dis(ch[q]),ch[p+1].dis(ch[q+1])));
+    }
+    return ans;
+}
+int checkconvex(vector&lt;point&gt;A){
+    int n=A.size(); A.push_back(A[0]); A.push_back(A[1]);
+    for (int i=0;i&lt;n;i++) if (cross(A[i+1]-A[i],A[i+2]-A[i])&lt;0) return 0;
+    return 1;
+}
+int n;point p;vector&lt;point&gt; v;
+int main(){
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%lld%lld&quot;,&amp;p.x,&amp;p.y);v.push_back(p);
+    }
+    v=ConvexHull(v);
+    if(!checkconvex(v)){cout&lt;&lt;&quot;nmsl&quot;;}
+    //for(auto x:v){cout&lt;&lt;x.x&lt;&lt;' '&lt;&lt;x.y&lt;&lt;endl;}
+    int p = v.size();
+    ll ans2 = rotating_calipers(v,p);
+    //ll ans = convexDiameter(v);
+    printf(&quot;%lld\n&quot;,ans2);
+}
+</code></pre>
+<hr>
+<p>这几个星期都不会训练了(bushi</p>
+<p>救救孩子</p>
+<p><s>考试周了</s></p>
+
+                </div>
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                
+                <a href="https://RTX2080.github.io/post/R570/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
+                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">R570</div>
+                    </div>
+                </a>
+                
+                
+                <a href="https://RTX2080.github.io/post/abc129/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter">abc129</div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="comment"></div>
+</div>
+<footer class="mdui-container footer ">
+    <div class="head_card-offset"></div>
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <img width="100%" src="/media/img/skirt.png">
+        </div>
+    </div>
+
+    <div class="site-info">
+        不..不要再往下啦>_<
+    </div>
+</footer>
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+            <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+            <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script>
+    var message_Path = '/media/live2d/';//资源目录，如果目录不对请更改
+    var talkAPI = "";//如果有类似图灵机器人的聊天接口请填写接口路径
+</script>
+<!--<script src="/media/js/jquery-3.3.1.min.js"></script>-->
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/js/message.js"></script>
+
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        
+        
+        
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
+</html>

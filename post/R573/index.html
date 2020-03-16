@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mxyの自闭屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="/media/css/post.css">
+    <link rel="stylesheet" href="/media/live2d/css/live2d.css" />
+    
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+<header class="mdui-toolbar mdui-color-pink mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+    <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+    <span class="mdui-typo-title">mxyの自闭屋</span>
+    <div class="mdui-toolbar-spacer"></div>
+<!--    <a href="javascript:history.go(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</header>
+
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+    <ul class="mdui-list">
+        <li class="mdui-subheader">菜单</li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/" class="mdui-list-item-content">首页</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/archives" class="mdui-list-item-content">归档</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/tags" class="mdui-list-item-content">标签</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/post/about" class="mdui-list-item-content">关于</a>
+        </li>
+        
+    </ul>
+</div>
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title">R573</h1>
+                    <p class="entry-census">发布于 2019-07-13</p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <p>有些比赛下着下着棋就忘了</p>
+<p>只有div2的。</p>
+<p>快结束了看了看D是个傻逼题。然后看了看F，树状数组瞎搞，但是一直在想怎么处理新加进去的点。</p>
+<p>A：</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+int main(){
+    ios::sync_with_stdio(false);
+    int n;
+    cin&gt;&gt;n;
+    n%=4;
+    if(n==0){
+        cout&lt;&lt;&quot;1 A&quot;;
+    }else if(n==1){
+        cout&lt;&lt;&quot;0 A&quot;;
+    }else if(n==2){
+        cout&lt;&lt;&quot;1 B&quot;;
+    }else if(n==3){
+        cout&lt;&lt;&quot;2 A&quot;;
+    }
+}
+</code></pre>
+<p>B:判有没有搭子。雀魂白打了，wa了两发。。。一开始漏了 46缺5这种情况。慢着！我终于知道为啥wa了，，46不是搭子。。。</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+string a,b,c;
+map&lt;char,int&gt; mp;
+vector&lt;int&gt; v[5];
+bool slove(int x){
+    if(v[x].size()==3){
+        if(v[x][0]==v[x][1]&amp;&amp;v[x][1]==v[x][2])return true;
+        if(v[x][0]==v[x][1]-1&amp;&amp;v[x][1]+1==v[x][2])return true;
+        return false;
+    }
+    return false;
+}
+bool can(int x){
+    if(v[x].size()==2){
+        if(v[x][0]+1==v[x][1])return true;
+        if(v[x][0]==v[x][1])return true;
+        if(v[x][0]+2==v[x][1])return true;
+        return false;
+    }
+    if(v[x].size()==3){
+        if(v[x][0]+1==v[x][1])return true;
+        if(v[x][1]+1==v[x][2])return true;
+        if(v[x][0]==v[x][1])return true;
+        if(v[x][2]==v[x][1])return true;
+        if(v[x][0]+2==v[x][1])return true;
+        if(v[x][2]-2==v[x][1])return true;
+        return false;
+    }
+    return false;
+}
+int main(){
+    ios::sync_with_stdio(false);
+    mp['m']=1,mp['s']=2,mp['p']=3;
+    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+    v[mp[a[1]]].push_back(a[0]-'0');
+    v[mp[b[1]]].push_back(b[0]-'0');
+    v[mp[c[1]]].push_back(c[0]-'0');
+    sort(v[1].begin(),v[1].end());
+    sort(v[2].begin(),v[2].end());
+    sort(v[3].begin(),v[3].end());
+    int mn=2;
+    for(int i=1;i&lt;=3;i++){
+        if(slove(i)){
+            mn=min(mn,0);
+        }else if(can(i)){
+            mn=min(mn,1);
+        }
+    }
+    cout&lt;&lt;mn&lt;&lt;endl;
+}
+</code></pre>
+<p>C:还挺好玩的，我还很认真的想了好几分钟。。。这比D难啊感觉。</p>
+<p>维护个前缀就行了。。好像都很傻逼。</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+ll n,m,k;
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;
+    queue&lt;ll&gt; q;ll x;
+    while (m--){
+        cin&gt;&gt;x;x--;
+        q.push(x);
+    }
+    ll pre=0,ans=0;
+    while (!q.empty()){
+        ll sz=0;
+        ll p = q.front();
+        sz++;q.pop();
+        while (!q.empty()&amp;&amp;(q.front()-pre)/k==(p-pre)/k){sz++,q.pop();}
+        ans++;pre+=sz;
+    }
+    cout&lt;&lt;ans&lt;&lt;endl;
+}
+</code></pre>
+<p>D:这是什么傻逼东西啊？？？这不是判一下初始状况，后面的就不用管了吗？？？</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+ll n,a[100005];
+map&lt;ll,int&gt;mp;
+void gg(){cout&lt;&lt;&quot;cslnb&quot;&lt;&lt;endl;exit(0);}
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;n;ll sum=0;
+    for(int i=1;i&lt;=n;i++){
+        cin&gt;&gt;a[i];
+        mp[a[i]]++;
+        sum+=a[i];
+    }
+    if(sum==0)gg();
+    int p=0,q=-1;
+    for(auto x:mp){
+        if(x.second&gt;=3)gg();
+        if(x.first==0&amp;&amp;x.second&gt;=2)gg();
+        if(x.first!=0&amp;&amp;x.second==2)p++,q=x.first;
+    }
+    if(p&gt;=2)gg();
+    if(p==1&amp;&amp;mp.count(q-1))gg();
+    ll all = (0+n-1)*n/2;
+    sum-=all;
+    if(sum&amp;1)cout&lt;&lt;&quot;sjfnb&quot;;
+    else gg();
+}
+</code></pre>
+<p>E:自闭了好久，主要是发现可以O(1)check先手，看了题解发现竟然还可以O(1)check后手，然后就一直寻思怎么O(1)check后手。然后自闭了。看代码也看不懂。深度自闭。</p>
+<p>然后问了问学长，用个set滑窗就好了。想了想好傻逼。。。</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+#define qqq cout&lt;&lt;&quot;quailty&quot;&lt;&lt;endl,exit(0)
+#define tasuki cout&lt;&lt;&quot;tokitsukaze&quot;&lt;&lt;endl,exit(0)
+using namespace std;
+typedef long long ll;
+const int N = 1e5+5;
+int n,k;string s;
+int pre[N];
+set&lt;int&gt; st[2];
+bool ok(){
+    if(st[0].empty()||st[1].empty())return 1;
+    if(*--st[0].end()-*st[0].begin()&lt;k)return 1;
+    if(*--st[1].end()-*st[1].begin()&lt;k)return 1;
+    return 0;
+}
+bool check(int x){
+    for(int i=1;i&lt;=k;i++)st[x].insert(i);
+    for(int i=k+1;i&lt;=n;i++)st[s[i]-'0'].insert(i);
+    if(!ok())return false;
+    for(int i=k+1;i&lt;=n;i++){
+        st[s[i]-'0'].erase(i);
+        st[x].insert(i);
+        st[x].erase(i-k);
+        st[s[i-k]-'0'].insert(i-k);
+        if(!ok())return false;
+    }
+    return true;
+}
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;n&gt;&gt;k&gt;&gt;s;s=&quot;*&quot;+s;
+    for(int i=1;i&lt;=n;i++)pre[i]=pre[i-1]+s[i]-'0';
+    for(int i=1;i+k-1&lt;=n;i++)if((pre[i-1]==i-1&amp;&amp;pre[n]-pre[i+k-1]==n-(i+k)+1)||(pre[i-1]==0&amp;&amp;pre[n]-pre[i+k-1]==0))tasuki;
+    if(check(0))qqq;
+    if(check(1))qqq;
+    cout&lt;&lt;&quot;once again&quot;&lt;&lt;endl;
+}
+</code></pre>
+<p>F : 显然的枚举Y轴加点， 每一次加进去的点都要保证被选中，所以我们不妨存下来这些加进去点，然后加上它左边的*<s>右边的</s>(具体看代码，我语文不好)。</p>
+<p>注意到一个x轴只用一次，所以打个标记，看的hzw的代码。</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 2e5+5;
+int lowbit(int x){return x&amp;-x;}
+int bit[N+2];
+int sum(int pos){
+    int res=0;
+    while (pos)res+=bit[pos],pos-=lowbit(pos);
+    return res;
+}
+void upd(int pos,int x){
+    while (pos&lt;=N){
+        bit[pos]+=x;
+        pos+=lowbit(pos);
+    }
+}
+struct point{
+    int x,y;
+}p[200005];
+bool cmp(point a,point b){return a.y&gt;b.y||(a.y==b.y&amp;&amp;a.x&lt;b.x);}
+int n,vis[N];
+vector&lt;int&gt; v;
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++){
+        cin&gt;&gt;p[i].x&gt;&gt;p[i].y;v.push_back(p[i].x);
+    }
+    v.erase(unique(v.begin(),v.end()),v.end());
+    sort(v.begin(),v.end());
+//    for(auto x:v)cout&lt;&lt;x&lt;&lt;' ';
+    sort(p+1,p+1+n,cmp);
+    for(int i=1;i&lt;=n;i++)p[i].x=lower_bound(v.begin(),v.end(),p[i].x)-v.begin()+1;
+    ll ans=0;
+    for(int l=1,r;l&lt;=n;l=r){
+        r=l;
+        vector&lt;int&gt; g;
+        while (p[r].y==p[l].y)g.push_back(p[r].x),r++;g.push_back(200001);
+        for(int i=l;i&lt;r;i++)if(!vis[p[i].x])upd(p[i].x,1),vis[p[i].x]=1;
+        for(int i=0;i&lt;g.size()-1;i++){
+            ll f = sum(g[i]),s = sum(g[i+1]-1);
+            ans+=f*(s-f+1);
+        }
+    }
+    cout&lt;&lt;ans&lt;&lt;endl;
+}
+</code></pre>
+<p><s>这hmc有什么用啊！！！</s></p>
+<figure data-type="image" tabindex="1"><img src="1.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="2.jpg" alt="" loading="lazy"></figure>
+<p><s>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</s></p>
+
+                </div>
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                
+                <a href="https://RTX2080.github.io/post/codeforces-1088-D/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
+                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">codeforces 1088 D</div>
+                    </div>
+                </a>
+                
+                
+                <a href="https://RTX2080.github.io/post/R570/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter">R570</div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="comment"></div>
+</div>
+<footer class="mdui-container footer ">
+    <div class="head_card-offset"></div>
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <img width="100%" src="/media/img/skirt.png">
+        </div>
+    </div>
+
+    <div class="site-info">
+        不..不要再往下啦>_<
+    </div>
+</footer>
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+            <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+            <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script>
+    var message_Path = '/media/live2d/';//资源目录，如果目录不对请更改
+    var talkAPI = "";//如果有类似图灵机器人的聊天接口请填写接口路径
+</script>
+<!--<script src="/media/js/jquery-3.3.1.min.js"></script>-->
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/js/message.js"></script>
+
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        
+        
+        
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mxyの自闭屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="/media/css/post.css">
+    <link rel="stylesheet" href="/media/live2d/css/live2d.css" />
+    
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+<header class="mdui-toolbar mdui-color-pink mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+    <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+    <span class="mdui-typo-title">mxyの自闭屋</span>
+    <div class="mdui-toolbar-spacer"></div>
+<!--    <a href="javascript:history.go(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</header>
+
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+    <ul class="mdui-list">
+        <li class="mdui-subheader">菜单</li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/" class="mdui-list-item-content">首页</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/archives" class="mdui-list-item-content">归档</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/tags" class="mdui-list-item-content">标签</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/post/about" class="mdui-list-item-content">关于</a>
+        </li>
+        
+    </ul>
+</div>
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title">abc129</h1>
+                    <p class="entry-census">发布于 2019-06-09</p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <p>F不会。</p>
+<p>A:</p>
+<hr>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 2e5+5;
+int main(){
+    ios::sync_with_stdio(false);
+    int a,b,c;
+    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+    cout&lt;&lt;min(b+c,min(a+b,a+c));
+}
+</code></pre>
+<hr>
+<p>B:</p>
+<hr>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 2e5+5;
+int sum=0,ans=1e9;
+int m,a[105];
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;m;
+    for(int i=1;i&lt;=m;i++)cin&gt;&gt;a[i],sum+=a[i];
+    int pre=0;
+    for(int i=1;i&lt;=m;i++){
+        pre+=a[i];
+        ans = min(ans,abs(sum-pre-pre));
+    }
+    cout&lt;&lt;ans&lt;&lt;endl;
+}
+</code></pre>
+<hr>
+<p>C:</p>
+<hr>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 1e5+5;
+const ll mod = 1e9+7;
+ll n,m,vis[N],x,dp[N];
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=m;i++)cin&gt;&gt;x,vis[x]=1;
+    dp[0]=1;
+    for(int i=1;i&lt;=n;i++){
+        if(!vis[i]){
+            dp[i]=dp[i-1]+((i&gt;=2)?dp[i-2]:0);
+        }else{
+            dp[i]=0;
+        }
+        dp[i]%=mod;
+    }
+    cout&lt;&lt;dp[n];
+}
+</code></pre>
+<hr>
+<p>D:维护前后缀</p>
+<hr>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 2e3+3;
+int n,m;
+string s[N];
+int l[N][N],r[N][N],u[N][N],d[N][N];
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=n;i++){
+        cin&gt;&gt;s[i];s[i]=&quot;#&quot;+s[i]+'#';
+    }
+    for(int i=1;i&lt;=n;i++){
+        for(int j=1;j&lt;=m;j++){
+//            cout&lt;&lt;s[i][j];
+            l[i][j]=(s[i][j]=='.'?l[i][j-1]+1:0);
+//            cout&lt;&lt;l[i][j]&lt;&lt;endl;
+        }
+    }
+    for(int i=1;i&lt;=n;i++){
+        for(int j=m;j&gt;=1;j--){
+            r[i][j]=(s[i][j]=='.'?r[i][j+1]+1:0);
+        }
+    }
+    for(int i=1;i&lt;=n;i++){
+        for(int j=1;j&lt;=m;j++){
+            u[i][j]=(s[i][j]=='.'?u[i-1][j]+1:0);
+        }
+    }
+    for(int i=n;i&gt;=1;i--){
+        for(int j=m;j&gt;=1;j--){
+            d[i][j]=(s[i][j]=='.'?d[i+1][j]+1:0);
+        }
+    }
+    int ans=0;
+    for(int i=1;i&lt;=n;i++){
+        for(int j=1;j&lt;=m;j++){
+            if(l[i][j]+u[i][j]+r[i][j]+d[i][j]-3&gt;ans){
+                ans=l[i][j]+u[i][j]+r[i][j]+d[i][j]-3;
+//                cout&lt;&lt;i&lt;&lt;' '&lt;&lt;j;
+            }
+//            ans = max(ans,);
+        }
+    }
+    cout&lt;&lt;max(ans,0)&lt;&lt;endl;
+}
+</code></pre>
+<hr>
+<p>E:</p>
+<p>考虑当前位为1和不为1的情况下，a^b不大于当前位的情况。</p>
+<p>为1：00，后面的随便选; 10或者01，后面的也不能大于。</p>
+<p>为0：没得选。</p>
+<hr>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 1e5+5;
+const ll mod=1e9+7;
+string s;ll dp[N],g[N],p[N];
+int n;ll ans=3;
+int main(){
+    ios::sync_with_stdio(false);
+    g[0]=1;for(int i=1;i&lt;=100000;i++)g[i]=g[i-1]*3%mod;
+    cin&gt;&gt;s;
+    n = s.length();
+    reverse(s.begin(),s.end());
+    for(int i=0;i&lt;n;i++){
+        if(s[i]=='1'){
+            if(i==0)p[i]=3;
+            else p[i]=(p[i-1]*2+g[i])%mod;
+        }else{
+            if(i==0)p[i]=1;
+            else p[i]=p[i-1];
+        }
+    }
+    cout&lt;&lt;p[n-1];
+}
+</code></pre>
+<hr>
+<p>F:</p>
+<p>不会。</p>
+<figure data-type="image" tabindex="1"><img src="1.png" alt="" loading="lazy"></figure>
+<p>说了个卜。</p>
+
+                </div>
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                
+                <a href="https://RTX2080.github.io/post/洛谷P1425/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
+                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">洛谷P1425</div>
+                    </div>
+                </a>
+                
+                
+                <a href="https://RTX2080.github.io/post/codeforces-1036E/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter">codeforces 1036E</div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="comment"></div>
+</div>
+<footer class="mdui-container footer ">
+    <div class="head_card-offset"></div>
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <img width="100%" src="/media/img/skirt.png">
+        </div>
+    </div>
+
+    <div class="site-info">
+        不..不要再往下啦>_<
+    </div>
+</footer>
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+            <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+            <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script>
+    var message_Path = '/media/live2d/';//资源目录，如果目录不对请更改
+    var talkAPI = "";//如果有类似图灵机器人的聊天接口请填写接口路径
+</script>
+<!--<script src="/media/js/jquery-3.3.1.min.js"></script>-->
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/js/message.js"></script>
+
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        
+        
+        
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
+</html>
