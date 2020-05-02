@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://RTX2080.github.io</id>
     <title>mxyの自闭屋</title>
-    <updated>2020-04-09T02:20:34.071Z</updated>
+    <updated>2020-05-02T02:52:19.846Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://RTX2080.github.io"/>
     <link rel="self" href="https://RTX2080.github.io/atom.xml"/>
@@ -59,7 +59,7 @@ int main(){
 <p>只有div2的。</p>
 <p>快结束了看了看D是个傻逼题。然后看了看F，树状数组瞎搞，但是一直在想怎么处理新加进去的点。</p>
 <p>A：</p>
-<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+<pre><code class="language-c">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 typedef long long ll;
 
@@ -79,7 +79,8 @@ int main(){
     }
 }
 </code></pre>
-<p>B:判有没有搭子。雀魂白打了，wa了两发。。。一开始漏了 46缺5这种情况。慢着！我终于知道为啥wa了，，46不是搭子。。。</p>
+<p>B:</p>
+<p>判有没有搭子。雀魂白打了，wa了两发。。。一开始漏了 46缺5这种情况。慢着！我终于知道为啥wa了，，46不是搭子。。。</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 typedef long long ll;
@@ -279,8 +280,8 @@ int main(){
 }
 </code></pre>
 <p><s>这hmc有什么用啊！！！</s></p>
-<figure data-type="image" tabindex="1"><img src="1.jpg" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="2.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://RTX2080.github.io/post-images/1588387417036.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://RTX2080.github.io/post-images/1588387422257.jpg" alt="" loading="lazy"></figure>
 <p><s>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</s></p>
 ]]></content>
     </entry>
@@ -699,6 +700,60 @@ int main(){
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[19新疆省赛水题]]></title>
+        <id>https://RTX2080.github.io/post/19新疆省赛水题/</id>
+        <link href="https://RTX2080.github.io/post/19新疆省赛水题/">
+        </link>
+        <updated>2019-06-08T06:25:03.000Z</updated>
+        <content type="html"><![CDATA[<p>不是我觉得这很好笑啊。</p>
+<figure data-type="image" tabindex="1"><img src="https://RTX2080.github.io/post-images/1588387241927.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://RTX2080.github.io/post-images/1588387260624.jpg" alt="" loading="lazy"></figure>
+<p>唔先看J题。</p>
+<p>异或的那个东西，假设只有一位的话，我们只需要考虑一个树上前缀异或和，</p>
+<p>那么考虑一条路径有贡献的时候，一定是选了一对(0,1)，<s>这么傻逼为啥我昨天没想到呢</s></p>
+<hr>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int mod = 1e9+7;
+const int N = 1e5+5;
+int n;
+vector&lt;int&gt; g[N],val[N];
+int dp[N],sum[N];
+void dfs(int v){
+    for(int i=0;i&lt;g[v].size();i++){
+        int u = g[v][i],w = val[v][i];
+        dp[u] = dp[v]^w;
+        dfs(u);
+    }
+}
+int main(){
+    ios::sync_with_stdio(false);
+    cin&gt;&gt;n;int a,b;
+    for(int i=2;i&lt;=n;i++){
+        cin&gt;&gt;a&gt;&gt;b;
+        g[a].push_back(i);
+        val[a].push_back(b);
+    }
+    dfs(1);
+    for(int i=1;i&lt;=n;i++){
+        for(int j=0;j&lt;=20;j++){
+            if(dp[i]&gt;&gt;j&amp;1)sum[j]++;
+        }
+    }
+    ll ans = 0;
+    for(int j=0;j&lt;=20;j++){
+        ans=(ans+((1ll&lt;&lt;j)*sum[j]*(n-sum[j])))%mod;
+    }
+    cout&lt;&lt;ans*2%mod;
+}
+</code></pre>
+<hr>
+<p><s>叶月由罗天下第一</s></p>
+<p>然后康一下F，<s>题目好像在暗示我们卡精度让我们求x轴交点啊？不可能的不可能的</s></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[codeforces 1036E]]></title>
         <id>https://RTX2080.github.io/post/codeforces-1036E/</id>
         <link href="https://RTX2080.github.io/post/codeforces-1036E/">
@@ -838,70 +893,6 @@ int main(){
 */
 </code></pre>
 <hr>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[南昌游记]]></title>
-        <id>https://RTX2080.github.io/post/南昌游记/</id>
-        <link href="https://RTX2080.github.io/post/南昌游记/">
-        </link>
-        <updated>2019-05-31T18:26:04.000Z</updated>
-        <content type="html"><![CDATA[<p>Day0:</p>
-<p>实验室通宵，<s>和hmc甜蜜双排一晚上赢了一把</s></p>
-<p>第一次坐飞机，<s>哼唧</s>，<s>飞机上的hmc还是比较可爱的</s></p>
-<p>小姐姐太好看了我死了！！！</p>
-<p>炒鸡好看炒鸡可爱的那种笑起来还有酒窝啊啊啊啊啊啊啊</p>
-<p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
-<p>空姐杀我啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
-<p>um。手机像素低+没坐边上就没拍。下飞机要照片竟然不给我</p>
-<p>哼</p>
-<p><s>不过还是给了亏他还能看出来我心情不好</s></p>
-<p>八点到南昌10点宾馆写了道题没调出来睡觉去了</p>
-<p>四点起来报道</p>
-<p>这个人！三个书包还有衣服和袋子！全给了我！</p>
-<p>然后去见同学！还没给我房卡！九点半才回来！！！</p>
-<figure data-type="image" tabindex="1"><img src="7.jpg%22%E7%94%B7%E4%BA%BA%E9%83%BD%E6%98%AF%E5%A4%A7%E7%8C%AA%E8%B9%84%E5%AD%90%22" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="1.jpg%22%E4%BA%91%E4%BA%91%E4%BA%91%EF%BC%81%22" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="3.jpg%22%E9%B8%A1%E9%B8%A1%E9%B8%A1%EF%BC%81%EF%BC%81%EF%BC%81%22" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="4"><img src="4.jpg%22%E5%AE%BE%E9%A6%86%E5%99%AB%22" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="5"><img src="6.jpg%22%E6%88%91%E8%80%81%E5%A9%86%EF%BC%81%22" alt="" loading="lazy"></figure>
-<p>唔看了云南虫谷和<s>小猪佩奇</s></p>
-<p><s>看了以前不会的一道傻逼题一眼秒了但是不想写</s></p>
-<p>把镜砸惹生气了,血亏。。</p>
-<p>Day1:</p>
-<p>A题中文题读错题意了气的队友想打人((</p>
-<p><s>演出风采</s></p>
-<p>BC数据全错了。</p>
-<p>吃饭。点了一盆蛙。<s>感觉明天已经完蛋了WAWAWAWAWAWAWA</s></p>
-<p>🐱中间说这顿他请了，<s>旷世实习一天300哇我也想去实习</s></p>
-<p>在南方下饭店对于我这种人=找死</p>
-<p>整张桌子唯一能吃的是米饭西红柿鸡蛋汤和肉末茄子(((</p>
-<p>八点多回来累死了，🐱睡觉了说十点半起来打cf。</p>
-<p>atcoder没得打了反正。</p>
-<p>啊！<s>早上花了68购买了漆黑泽克斯原型二代！永恒之枪！漆黑之盾！</s></p>
-<p><s>累死了那么我到底和谁一起睡呢。。。</s></p>
-<p>Day2：<s>实际上我昨晚轮流陪睡</s></p>
-<p><s>见识到了他人和我睡觉的恐怖之处</s></p>
-<p>本着必定丢东西定律，在走了一段路之后想起来我的U盘落在宾馆电视记上了。</p>
-<p><s>回去拿差点迟到了</s></p>
-<p><s>午饭吃不饱</s></p>
-<p>发下来一血气球的时候我寻思这样后面不就插不开了，所幸队友很给力我们并没有遇到这个问题。<s>？？？？？你在说你🐴呢？？？？？</s></p>
-<p><s>昨天确认了右上角的队伍很菜之后感觉没来强队</s></p>
-<p>比完赛就滚蛋了亲耳听到了小姐姐说要采访我们还我小姐姐<s>的采访</s>！！！</p>
-<p>好多板子题，我全程挂机看队友施展。。。</p>
-<p>中文题面我带了本词典，再见。</p>
-<p>ps:</p>
-<p>我好菜啊。一堆没见过的题目。没见过的板子。感觉自己没啥用。</p>
-<p>还是好好刷题吧。。好像自己状态也不是很对。。。</p>
-<p>忘记见qls了www</p>
-<p>好像能报销？？？大喜事！</p>
-<p>五一买的眼镜盒省赛丢了。</p>
-<p>省赛送的充电宝ccsp分区赛丢了。</p>
-<p>ccsp分区赛买的U盘这次被我扔在宾馆了。</p>
-<p>那么这次买的<s>漆黑泽克斯原始型第二</s>自动伞会什么时候丢呢(((</p>
-<p>镜砸还没理我我有点慌了。。。</p>
-<p>后记：正儿八经的比赛过程。</p>
-<p>开局我启动clion签了L，队友发现H傻逼题，🐱去施展线段树被赶下来了，hmc施展然后吃了一发罚时，我说先写K吧，然后找到了bug，过了HK，F傻逼题也过了，B题拉格朗日插值施展，然后去施展A，(大概是这样的)，这是🐱发现了C的dp，去写C，然后写了会D给丢了，这时！我们！讨论出了！G题，后缀maxcdq分治套树状数组处理三元组的做法！告诉hmc，看了下榜过了100多，卒。然后过了G，去写I题，吃了几发T然后也过了。还剩两个，D题MLE被卡了，最后三分钟看到了公告。卒。</p>
 ]]></content>
     </entry>
 </feed>
