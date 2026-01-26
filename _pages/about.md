@@ -21,32 +21,41 @@ Hi, I am Xuyang Ma, currently a second-year PhD student at Singapore University 
 
 
 
+# 📖 Educations
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2024.9 - 2028.6*, Pillar of Information Systems Technology and Design, Singapore University of Technology and Design. 
+- *2021.9 - 2024.6*, Institute of Computing Technology, Chinese Academy of Sciences.
+- *2017.9 - 2021.6*, School of Software Engineering, Shandong University.
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> </div><img src='images/2025-SIGAsia-InverseTiling.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+[Inverse Tiling of 2D Finite Domains](https://sutd-cgl.github.io/supp/Publication/projects/2025-SIGAsia-InverseTiling/index.html)
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+Rulin Chen, **Xuyang Ma**, Praveer Tewari, Chi-Wing Fu, and Peng Song
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+SIGGRAPH Asia (Conference Track), 2025
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 </div>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> </div><img src='images/2026-CN-MutilayerSpatiotemporalCostGraph.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+[Efficient Information Support in Leo Scns: A Multi-Layer Spatiotemporal Cost Model and Dynamic Reallocation Algorithm](https://www.sciencedirect.com/science/article/pii/S1389128625007583)
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+Yaoqi Lu, Bingbing Shi, Yinhe Han, **Xuyang Ma**, Jiying Yin, and Hongxin Li
+
+Computer Networks, Volume 274, 2026, 111792
+
+</div>
+</div>
+
+# 🏆 Awards
+- ICPC Invitational Contest (Nanchang), Champion, 2019
+- CCPC Regional Contest (Qinhuangdao), Gold Award, 2019
+- ICPC Provincial Contest (Shandong), Second Place, 2019
+- ICPC Regional Contest (Nanchang), Silver Award, 2019
+

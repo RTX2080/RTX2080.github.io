@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Xuyang Ma"
-  avatar           : "images/android-chrome-512x512.png"
+  avatar           : "images/avatar.jpg"
   bio              : "Singapore University of Technology and Design"
   location         : "Singapore"
   employer         :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "RTX2080"
   google_plus      :
   keybase          :
   instagram        :
@@ -49,7 +49,7 @@ author:
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            : 
+  steam            : "76561198415677652"
   tumblr           :
   twitter          : 
   vine             :
