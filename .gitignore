@@ -1,3 +1,27 @@
+# Jekyll 生成文件
 _site/
-push.sh
+.jekyll-cache/
+.jekyll-metadata
+
+# 依赖和缓存
+vendor/
+.bundle/
+.ruby-version
+
+# 环境文件
+.env
+.env.local
+
+# 系统文件
 .DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*~
+
+# 其他
+*.log
+tmp/
