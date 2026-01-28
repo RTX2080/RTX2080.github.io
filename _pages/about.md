@@ -63,4 +63,4 @@ Computer Networks, Volume 274, 2026, 111792
 
 - Table tennis. Team SUTD in *Singapore University Games* 2025. Unfortunately, I have a Ⅱ° meniscus injury.
 - Chinese Chess, with Honorable Mention from *Chinese University Mind Sports Association* when I was a freshman.
-- Go, with Amateur 1d on *Yehu Go*. 
+- Go, with Amateur 1k on *Yehu Go*. 
