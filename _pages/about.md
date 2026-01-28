@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I am Xuyang Ma, currently a second-year PhD student at Singapore University of Technology and Design (SUTD), under supervision of Prof. Peng Song. Previously, I received my master degree from Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS), supervised by Prof. Yiqing Zhou. Before master studies, I reveived my bachelor degree from School of Software Engineering at Shandong University. 
+Hi, I am Xuyang Ma, currently a second-year PhD student at Singapore University of Technology and Design (SUTD), under supervision of Prof. [Peng Song](https://songpenghit.github.io/). Previously, I received my master degree from Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS), supervised by Prof. [Yiqing Zhou](https://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496807.html). Before master studies, I reveived my bachelor degree from School of Software Engineering at Shandong University. 
 
 
 
@@ -34,7 +34,7 @@ Hi, I am Xuyang Ma, currently a second-year PhD student at Singapore University 
 
 [Inverse Tiling of 2D Finite Domains](https://sutd-cgl.github.io/supp/Publication/projects/2025-SIGAsia-InverseTiling/index.html)
 
-Rulin Chen, **Xuyang Ma**, Praveer Tewari, Chi-Wing Fu, and Peng Song
+[Rulin Chen](https://linsanity81.github.io/), **Xuyang Ma**, Praveer Tewari, Chi-Wing Fu, and Peng Song
 
 SIGGRAPH Asia (Conference Track), 2025
 
@@ -59,3 +59,8 @@ Computer Networks, Volume 274, 2026, 111792
 - ICPC Provincial Contest (Shandong), Second Place, 2019
 - ICPC Regional Contest (Nanchang), Silver Award, 2019
 
+# 🧡 Misc
+
+- Table tennis. Team SUTD in *Singapore University Games* 2025. Unfortunately, I have a Ⅱ° meniscus injury.
+- Chinese Chess, with Honorable Mention from *Chinese University Mind Sports Association* when I was a freshman.
+- Go, with Amateur 1d on *Yehu Go*. 
