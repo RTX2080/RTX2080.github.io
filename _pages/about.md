@@ -17,11 +17,11 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I am Xuyang Ma, currently a second-year PhD student at Singapore University of Technology and Design (SUTD), under supervision of Prof. [Peng Song](https://songpenghit.github.io/), my research lies in the field of Computational Design, specifically some puzzle problems.
+Hi, I am Xuyang Ma, currently a second-year PhD student at Singapore University of Technology and Design (SUTD), under the supervision of Prof. [Peng Song](https://songpenghit.github.io/), my research lies in the field of Computational Design, specifically some puzzle problems.
 
-Previously, I earned my master degree from Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS), supervised by Prof. [Yiqing Zhou](https://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496807.html), where I worked on Satellite Communtitaion.
+Previously, I earned my Master's degree from Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS), supervised by Prof. [Yiqing Zhou](https://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496807.html), where I worked on Satellite Communication.
 
-Before master studies, I reveived my bachelor degree from School of Software Engineering at Shandong University, where I spent more than one thousand hours on Competitive Programming Contests, see [SDU News](https://www.view.sdu.edu.cn/info/1022/119097.htm).
+Before master studies, I received my Bachelor's degree from School of Software Engineering at Shandong University, where I spent more than one thousand hours on Competitive Programming Contests, see [SDU News](https://www.view.sdu.edu.cn/info/1022/119097.htm).
 
 
 
