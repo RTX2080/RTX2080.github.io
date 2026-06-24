@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I am Xuyang Ma, currently a second-year PhD student at Singapore University of Technology and Design (SUTD), under the supervision of Prof. [Peng Song](https://songpenghit.github.io/), my research lies in the field of Computational Design, specifically Assmebly + AI.
+Hi, I am Xuyang Ma, currently a second-year PhD candidate at Singapore University of Technology and Design (SUTD), under the supervision of Prof. [Peng Song](https://songpenghit.github.io/). My research focused on AI Computational Design, with a particular interest in integrating **tiling, structural stability, and assembly**.
 
 Previously, I earned my Master's degree from Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS), supervised by Prof. [Yiqing Zhou](https://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496807.html), where I worked on Satellite Communication.
 
@@ -65,6 +65,6 @@ Computer Networks, Volume 274, 2026, 111792
 
 # 🧡 Misc
 
-- Table tennis. Team SUTD in *Singapore University Games* 2025. Unfortunately, I have a Ⅱ° meniscus injury.
+- Table tennis. Team SUTD in *Singapore University Games* 2025&2026. Unfortunately, I have a Ⅱ° meniscus injury.
 - Chinese Chess, with Honorable Mention from *Chinese University Mind Sports Association* when I was a freshman.
 - Go, with Amateur 1k on *Yehu Go*. 
